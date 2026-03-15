@@ -1,0 +1,23 @@
+import { createBrowserRouter } from 'react-router-dom';
+import RootLayout from './layout/RootLayout';
+import HomePage from './pages/HomePage';
+import ProductDetailPage from './pages/ProductDetailPage';
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <RootLayout />,
+        children: [
+            {
+                index: true,
+                element: <HomePage />,
+            },
+            {
+                path: "products/:id",
+                element: <ProductDetailPage />,
+            },
+        ],
+    },
+])
+
+export default router;
