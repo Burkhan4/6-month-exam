@@ -1,6 +1,58 @@
-import Button from "../components/Button";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Heart from "../assets/svg/heart.svg?react";
+import Shopping from "../assets/svg/shopping.svg?react";
+import Icon from "../assets/svg/NavSearchBtn.svg?react";
+import productService from "../service/product.service";
+
+const PRODUCTS_PER_PAGE = 9;
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  const [allProducts, setAllProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAllProducts = async () => {
+      setLoading(true);
+      try {
+        const products = await productService.getProduct();
+        setAllProducts(products || []);
+      } catch (error) {
+        console.error("Mahsulotlarni yuklashda xato:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAllProducts();
+  }, []);
+
+  const indexOfLastProduct = currentPage * PRODUCTS_PER_PAGE;
+  const indexOfFirstProduct = indexOfLastProduct - PRODUCTS_PER_PAGE;
+  const currentProducts = allProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct,
+  );
+
+  const totalPages = Math.ceil(allProducts.length / PRODUCTS_PER_PAGE);
+
+  const handlePageChange = (newPage) => {
+    if (newPage < 1 || newPage > totalPages) return;
+    setCurrentPage(newPage);
+    window.scrollTo({ top: 300, behavior: "smooth" });
+  };
+
+  const getPageNumbers = () => {
+    const pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(i);
+    }
+    return pages;
+  };
+
   return (
     <section>
       <div className="container tablet:bg-[#F5F5F580] desktop:bg-[#F5F5F580]">
@@ -21,11 +73,15 @@ const HomePage = () => {
             <p className="max-w-139.25 w-full desktop:hidden tablet:hidden mb-2.5 text-[#727272] text-[12px]">
               We are an online plant shop offering a wide range{" "}
             </p>
-            <button className="hidden desktop:flex tablet:flex w-35 h-10 rounded-md bg-[#46A358] text-white font-bold cursor-pointer duration-200 hover:bg-[#4caf60]">
+            <button className="hidden pt-2 pl-6 desktop:flex tablet:flex w-35 h-10 rounded-md bg-[#46A358] text-white font-bold cursor-pointer duration-200 hover:bg-[#4caf60]">
               SHOP NOW
             </button>
-            <div className="flex gap-0.5">
-              <a href="#"><p className="text-[14px] text-[#46A358] font-bold duration-200 hover:text-[#227633]">SHOP NOW</p></a>
+            <div className="flex gap-0.5 desktop:hidden tablet:hidden">
+              <a href="#">
+                <p className="text-[14px] text-[#46A358] font-bold duration-200 hover:text-[#227633]">
+                  SHOP NOW
+                </p>
+              </a>
               <img src="/svg/right.svg" alt="" />
             </div>
           </div>
@@ -34,6 +90,238 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <section>
+        <div className="container">
+          <div className="flex pt-11.5 justify-between tablet:gap-4 desktop:gap-12.5 mb-23">
+            <div className="hidden desktop:flex flex-col tablet:flex">
+              <div className="max-w-77.5 w-full bg-[#FBFBFB] py-3.5 px-5">
+                <h2 className="text-[18px] font-bold text-[#3D3D3D] mb-3">
+                  Categories
+                </h2>
+                <ul className="flex flex-col gap-4 pl-2.5 mb-9">
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      House Plants <span className="ml-34.25">(33)</span>
+                    </li>
+                  </a>
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Potter Plants <span className="ml-34.75">(12)</span>
+                    </li>
+                  </a>
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Seeds <span className="ml-45">(65)</span>
+                    </li>
+                  </a>
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Small Plants <span className="ml-35.5">(39)</span>
+                    </li>
+                  </a>
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Big Plants <span className="ml-38.5">(23)</span>
+                    </li>
+                  </a>
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Succulents <span className="ml-37">(17)</span>
+                    </li>
+                  </a>
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Trerrariums <span className="ml-35.75">(19)</span>
+                    </li>
+                  </a>
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Gardening <span className="ml-37">(13)</span>
+                    </li>
+                  </a>
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Accessories <span className="ml-35.5">(18)</span>
+                    </li>
+                  </a>
+                </ul>
+                <h2 className="text-[18px] font-bold text-[#3D3D3D] mb-5">
+                  Price Range
+                </h2>
+                <img className="pl-2.5 mb-3.5" src="/svg/Setting.svg" alt="" />
+                <p className="text-[15px] pl-3 mb-4">
+                  Price:{" "}
+                  <span className="font-bold text-[#46A358]">$39 - $1230</span>
+                </p>
+                <button className="w-22.5 ml-2.5 mb-11.5 h-8.75 bg-[#46A358] rounded-md font-bold text-white cursor-pointer duration-200 hover:bg-[#4caf60]">
+                  Filter
+                </button>
+                <h2 className="text-[18px] font-bold text-[#3D3D3D] mb-1.75">
+                  Size
+                </h2>
+                <ul className="flex flex-col gap-4 pl-2.5 mb-4.75">
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Small <span className="ml-45">(119)</span>
+                    </li>
+                  </a>
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Medium <span className="ml-41">(86)</span>
+                    </li>
+                  </a>
+                  <a href="#">
+                    <li className="text-[#3D3D3D] text-[12px] desktop:text-[14px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                      Large <span className="ml-45">(78)</span>
+                    </li>
+                  </a>
+                </ul>
+              </div>
+              <img src="/img/SuperSaleBanner.png" alt="" />
+            </div>
+            <div className="flex-1">
+              <div className="flex justify-between desktop:w-209.5 tablet:w-100 mb-7.75">
+                <div className="flex gap-9">
+                  <h2 className="text-[13px] desktop:text-[15px] text-[#46A358] font-bold border-b-2 border-[#46A358]">
+                    All Plants
+                  </h2>
+                  <h2 className="text-[13px] desktop:text-[15px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                    New Arrivals
+                  </h2>
+                  <h2 className="text-[13px] desktop:text-[15px] cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:text-[#46A358]">
+                    Sale
+                  </h2>
+                </div>
+                <h2 className="text-[13px] desktop:text-[15px] hidden desktop:flex tablet:flex">
+                  Short by: Default sorting
+                </h2>
+              </div>
+
+              {loading ? (
+                <div className="text-center py-20 text-[#46A358] font-medium">
+                  Yuklanmoqda...
+                </div>
+              ) : allProducts.length === 0 ? (
+                <div className="text-center py-20 text-gray-600">
+                  Hozircha mahsulot yo'q 😔
+                </div>
+              ) : (
+                <>
+                  <div className="grid desktop:grid-cols-3 grid-cols-2 mobile:grid-cols-1 tablet:gap-2 desktop:gap-17.5">
+                    {currentProducts.map((product) => (
+                      <div
+                        key={product._id}
+                        onClick={() => navigate(`/product/${product._id}`)}
+                        className="group mb-5 cursor-pointer"
+                      >
+                        <div className="max-w-[260px] w-full desktop:h-[300px] tablet:h-[280px] h-[240px] desktop:rounded-none tablet:rounded-none rounded-[20px] desktop:pt-7.75 tablet:pt-3.5 px-1 bg-[#FBFBFB] relative mb-3 duration-200 cursor-pointer border border-transparent hover:border-t-[#46A358] hover:shadow-md transition-all">
+                          <img
+                            className="desktop:w-[250px] desktop:h-[250px] tablet:w-[150px] tablet:h-[150px] w-[168px] h-[168px] object-contain mx-auto"
+                            src={
+                              product.pictures?.[0] || "/img/placeholder.png"
+                            }
+                            alt={product.name}
+                          />
+                          <div className="absolute top-3 right-3">
+                            <Heart className="w-5 h-5 text-[#46A358] hover:text-[#137727] duration-200 cursor-pointer" />
+                          </div>
+                          <div className="absolute opacity-0 group-hover:opacity-100 transition duration-200 flex gap-6 left-1/2 -translate-x-1/2 bottom-4">
+                            <Shopping className="w-5 h-5 text-[#3D3D3D] hover:text-[#46A358] duration-200 cursor-pointer" />
+                            <Heart className="w-5 h-5 text-[#3D3D3D] hover:text-[#46A358] duration-200 cursor-pointer" />
+                            <Icon className="w-5 h-5 text-[#3D3D3D] hover:text-[#46A358] duration-200 cursor-pointer" />
+                          </div>
+                        </div>
+                        <h2 className="desktop:text-[16px] text-[15px] mb-1.5 font-medium line-clamp-2">
+                          {product.name}
+                        </h2>
+                        <p className="text-[#46A358] desktop:text-[18px] text-[16px] font-bold">
+                          ${Number(product.price).toFixed(2)}
+                        </p>
+                        {product.discount > 0 && (
+                          <p className="text-sm text-gray-500 mt-0.5">
+                            Chegirma: {product.discount}%
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  {totalPages > 1 && (
+                    <div className="flex justify-end items-center gap-2 mt-12 mb-16 flex-wrap">
+                      <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className="px-5 py-2.5 rounded-md bg-gray-100 text-[#3D3D3D] font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
+                      >
+                        Oldingi
+                      </button>
+
+                      {getPageNumbers().map((page) => (
+                        <button
+                          key={page}
+                          onClick={() => handlePageChange(page)}
+                          className={`px-4 py-2 rounded-md text-sm font-medium min-w-[36px] transition-colors ${
+                            currentPage === page
+                              ? "bg-[#46A358] text-white"
+                              : "text-[#3D3D3D] hover:bg-[#46A358]/10 hover:text-[#46A358]"
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      ))}
+
+                      <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="px-5 py-2.5 rounded-md bg-gray-100 text-[#3D3D3D] font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-200 transition-colors"
+                      >
+                        Keyingi
+                      </button>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="container">
+          <div className="flex desktop:gap-7 target:gap-3.5 gap-8 desktop:flex-row flex-col">
+            <div className="max-w-146.5 w-full min-h-62.5 bg-[#FBFBFB] flex desktop:flex-row tablet:flex-row flex-col pb-4">
+              <img src="/img/summer1.png" alt="" />
+              <div className="desktop:pt-9.25 tablet:pt-4 pt-2 desktop:pr-7.5 tablet:pr-3.5 pr-1.5 flex flex-col  text-end">
+                <h2 className="text-[18px] font-bold mb-2">
+                  Summer cactus <br />& succulents
+                </h2>
+                <p className="text-[14px] text-[#727272] mb-3.5">
+                  We are an online plant shop offering a wide range of cheap and
+                  trendy plants
+                </p>
+                <button className="w-35 h-10 cursor-pointer flex items-center justify-center gap-1 ml-15 rounded-md bg-[#46A358] text-[14px] text-white  duration-200 hover:bg-[#4caf60]">
+                  Find More
+                  <img src="/svg/ArrowRight.svg" alt="" />
+                </button>
+              </div>
+            </div>
+            <div className="max-w-146.5 w-full min-h-62.5 bg-[#FBFBFB] flex desktop:flex-row tablet:flex-row flex-col pb-4">
+              <img src="/img/summer2.png" alt="" />
+              <div className="desktop:pt-9.25 tablet:pt-4 pt-2 desktop:pr-7.5 tablet:pr-3.5 pr-1.5 flex flex-col  text-end">
+                <h2 className="text-[18px] font-bold mb-2">
+                  Styling Trends <br />& much more
+                </h2>
+                <p className="text-[14px] text-[#727272] mb-3.5">
+                  We are an online plant shop offering a wide range of cheap and
+                  trendy plants
+                </p>
+                <button className="w-35 h-10 cursor-pointer flex items-center justify-center gap-1 ml-15 rounded-md bg-[#46A358] text-[14px] text-white  duration-200 hover:bg-[#4caf60]">
+                  Find More
+                  <img src="/svg/ArrowRight.svg" alt="" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
   );
 };
