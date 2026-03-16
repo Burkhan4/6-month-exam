@@ -423,7 +423,7 @@ const HomePage = () => {
         <div className="w-103.5 relative m-auto">
           <img src="/svg/MobBottom.svg" alt="" />
 
-          <div className="absolute left-39 bottom-9">
+          <div className="absolute left-35 bottom-9">
             <img className="cursor-pointer" src="/svg/MobBotoom.svg" alt="" />
           </div>
 
