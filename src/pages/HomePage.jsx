@@ -286,7 +286,7 @@ const HomePage = () => {
       </section>
       <section>
         <div className="container">
-          <div className="flex desktop:gap-7 target:gap-3.5 gap-8 desktop:flex-row flex-col">
+          <div className="flex desktop:gap-7 target:gap-3.5 gap-8 desktop:flex-row flex-col desktop:mb-34.5 mb-20">
             <div className="max-w-146.5 w-full min-h-62.5 bg-[#FBFBFB] flex desktop:flex-row tablet:flex-row flex-col pb-4">
               <img src="/img/summer1.png" alt="" />
               <div className="desktop:pt-9.25 tablet:pt-4 pt-2 desktop:pr-7.5 tablet:pr-3.5 pr-1.5 flex flex-col  text-end">
@@ -317,6 +317,114 @@ const HomePage = () => {
                   Find More
                   <img src="/svg/ArrowRight.svg" alt="" />
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="container">
+          <h2 className="max-w-52.25 w-full m-auto tablet:text-[26px] text-[22px] desktop:text-[30px] font-bold text-[#3D3D3D] mb-6">
+            Our Blog Posts
+          </h2>
+          <p className="max-w-139.25 w-full desktop:text-[14px] text-[12px] text-[#727272] m-auto mb-8.75">
+            We are an online plant shop offering a wide range of cheap and
+            trendy plants.
+          </p>
+          <div className="grid tablet:grid-cols-2 grid-cols-1 tablet:gap-0 desktop:gap-0 gap-8 desktop:grid-cols-4 mb-15 desktop:mb-25">
+            <div className="max-w-67 w-full h-91 cursor-pointer bg-[#FBFBFB] duration-200 hover:shadow-2xl tablet:mb-10 m-auto">
+              <img
+                className="mb-2 desktop:w-67"
+                src="/img/Blog1.png"
+                alt=""
+              />
+              <p className="ml-3.75 text-[10px] tablet:text-[12px] desktop:text-[14px] text-[#46A358] font-medium mb-1">
+                September 12 I Read in 6 minutes
+              </p>
+              <h2 className="ml-3.75 desktop:text-[20px] tablet:text-[16px] text-[13px] font-bold text-[#3D3D3D] mb-1">
+                Cactus & Succulent <br />
+                Care Tips
+              </h2>
+              <p className="ml-3.75 desktop:text-[14px] tablet:text-[12px] text-[10px] text-[#727272] mb-2 leading-[100%]">
+                Cacti are succulents are easy care <br />
+                plants for any home or patio.
+              </p>
+              <div className="flex items-center gap-1 ml-3.75">
+                <p className="text-[14px] text-[#3D3D3D] duration-200 cursor-pointer hover:text-[#46A358]">
+                  Read More
+                </p>
+                <img src="/svg/right.svg" alt="" />
+              </div>
+            </div>
+            <div className="max-w-67 w-full h-91 cursor-pointer bg-[#FBFBFB] duration-200 hover:shadow-2xl m-auto">
+              <img
+                className="mb-2 desktop:w-67"
+                src="/img/Blog2.png"
+                alt=""
+              />
+              <p className="ml-3.75 text-[10px] tablet:text-[12px] desktop:text-[14px] text-[#46A358] font-medium mb-1">
+                September 13 I Read in 2 minutes
+              </p>
+              <h2 className="ml-3.75 desktop:text-[20px] tablet:text-[16px] text-[13px] font-bold text-[#3D3D3D] mb-1">
+                Top 10 Succulents for <br />
+                Your Home
+              </h2>
+              <p className="ml-3.75 desktop:text-[14px] tablet:text-[12px] text-[10px] text-[#727272] mb-2 leading-[100%]">
+                Best in hanging baskets. Prefers <br />
+                medium to high light.
+              </p>
+              <div className="flex items-center gap-1 ml-3.75">
+                <p className="text-[14px] text-[#3D3D3D] duration-200 cursor-pointer hover:text-[#46A358]">
+                  Read More
+                </p>
+                <img src="/svg/right.svg" alt="" />
+              </div>
+            </div>
+            <div className="max-w-67 w-full h-91 cursor-pointer bg-[#FBFBFB] duration-200 hover:shadow-2xl m-auto">
+              <img
+                className="mb-2 desktop:w-67"
+                src="/img/Blog3.png"
+                alt=""
+              />
+              <p className="ml-3.75 text-[10px] tablet:text-[12px] desktop:text-[14px] text-[#46A358] font-medium mb-1">
+                September 15 I Read in 3 minutes
+              </p>
+              <h2 className="ml-3.75 desktop:text-[20px] tablet:text-[16px] text-[13px] font-bold text-[#3D3D3D] mb-1">
+                Cactus & Succulent <br />
+                Care Tips
+              </h2>
+              <p className="ml-3.75 desktop:text-[14px] tablet:text-[12px] text-[10px] text-[#727272] mb-2 leading-[100%]">
+                Cacti and succulents thrive in <br />
+                containers and because most are..
+              </p>
+              <div className="flex items-center gap-1 ml-3.75">
+                <p className="text-[14px] text-[#3D3D3D] duration-200 cursor-pointer hover:text-[#46A358]">
+                  Read More
+                </p>
+                <img src="/svg/right.svg" alt="" />
+              </div>
+            </div>
+            <div className="max-w-67 w-full h-91 cursor-pointer bg-[#FBFBFB] duration-200 hover:shadow-2xl m-auto">
+              <img
+                className="mb-2 desktop:w-67"
+                src="/img/Blog4.png"
+                alt=""
+              />
+              <p className="ml-3.75 text-[10px] tablet:text-[12px] desktop:text-[14px] text-[#46A358] font-medium mb-1">
+                September 15 I Read in 2 minutes
+              </p>
+              <h2 className="ml-3.75 desktop:text-[20px] tablet:text-[16px] text-[13px] font-bold text-[#3D3D3D] mb-1">
+                Best Houseplants <br />
+                Room by Room
+              </h2>
+              <p className="ml-3.75 desktop:text-[14px] tablet:text-[12px] text-[10px] text-[#727272] mb-2 leading-[100%]">
+                The benefits of houseplants are <br />endless. In addition to..
+              </p>
+              <div className="flex items-center gap-1 ml-3.75">
+                <p className="text-[14px] text-[#3D3D3D] duration-200 cursor-pointer hover:text-[#46A358]">
+                  Read More
+                </p>
+                <img src="/svg/right.svg" alt="" />
               </div>
             </div>
           </div>
