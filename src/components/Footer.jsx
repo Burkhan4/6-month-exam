@@ -10,7 +10,7 @@ import Youtube from "../assets/svg/FooterYoutube.svg?react";
 const Footer = () => {
   return (
     <footer className="container">
-      <div className="bg-[#FBFBFB]">
+      <div className="bg-[#FBFBFB] mb-35 desktop:mb-0 tablet:mb-0">
         <div className="flex flex-col desktop:flex-row py-1.5 px-3 desktop:py-6 desktop:px-6 tablet:flex-row items-center">
           <div className="max-w-59.5 w-full flex flex-col items-center desktop:items-start tablet:items-start">
             <img

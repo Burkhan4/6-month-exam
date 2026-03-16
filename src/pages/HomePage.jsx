@@ -4,6 +4,10 @@ import Heart from "../assets/svg/heart.svg?react";
 import Shopping from "../assets/svg/shopping.svg?react";
 import Icon from "../assets/svg/NavSearchBtn.svg?react";
 import productService from "../service/product.service";
+import Mob1 from "../assets/svg/MobBotoom1.svg?react";
+import Mob2 from "../assets/svg/MobBotoom2.svg?react";
+import Mob3 from "../assets/svg/MobBotoom3.svg?react";
+import Mob4 from "../assets/svg/MobBotoom4.svg?react";
 
 const PRODUCTS_PER_PAGE = 9;
 
@@ -211,7 +215,7 @@ const HomePage = () => {
                     {currentProducts.map((product) => (
                       <div
                         key={product._id}
-                        onClick={() => navigate(`/product/${product._id}`)}
+                        onClick={() => navigate(`/products/${product._id}`)}
                         className="group mb-5 cursor-pointer"
                       >
                         <div className="max-w-[260px] w-full desktop:h-[300px] tablet:h-[280px] h-[240px] desktop:rounded-none tablet:rounded-none rounded-[20px] desktop:pt-7.75 tablet:pt-3.5 px-1 bg-[#FBFBFB] relative mb-3 duration-200 cursor-pointer border border-transparent hover:border-t-[#46A358] hover:shadow-md transition-all">
@@ -333,11 +337,7 @@ const HomePage = () => {
           </p>
           <div className="grid tablet:grid-cols-2 grid-cols-1 tablet:gap-0 desktop:gap-0 gap-8 desktop:grid-cols-4 mb-15 desktop:mb-25">
             <div className="max-w-67 w-full h-91 cursor-pointer bg-[#FBFBFB] duration-200 hover:shadow-2xl tablet:mb-10 m-auto">
-              <img
-                className="mb-2 desktop:w-67"
-                src="/img/Blog1.png"
-                alt=""
-              />
+              <img className="mb-2 desktop:w-67" src="/img/Blog1.png" alt="" />
               <p className="ml-3.75 text-[10px] tablet:text-[12px] desktop:text-[14px] text-[#46A358] font-medium mb-1">
                 September 12 I Read in 6 minutes
               </p>
@@ -357,11 +357,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="max-w-67 w-full h-91 cursor-pointer bg-[#FBFBFB] duration-200 hover:shadow-2xl m-auto">
-              <img
-                className="mb-2 desktop:w-67"
-                src="/img/Blog2.png"
-                alt=""
-              />
+              <img className="mb-2 desktop:w-67" src="/img/Blog2.png" alt="" />
               <p className="ml-3.75 text-[10px] tablet:text-[12px] desktop:text-[14px] text-[#46A358] font-medium mb-1">
                 September 13 I Read in 2 minutes
               </p>
@@ -381,11 +377,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="max-w-67 w-full h-91 cursor-pointer bg-[#FBFBFB] duration-200 hover:shadow-2xl m-auto">
-              <img
-                className="mb-2 desktop:w-67"
-                src="/img/Blog3.png"
-                alt=""
-              />
+              <img className="mb-2 desktop:w-67" src="/img/Blog3.png" alt="" />
               <p className="ml-3.75 text-[10px] tablet:text-[12px] desktop:text-[14px] text-[#46A358] font-medium mb-1">
                 September 15 I Read in 3 minutes
               </p>
@@ -405,11 +397,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="max-w-67 w-full h-91 cursor-pointer bg-[#FBFBFB] duration-200 hover:shadow-2xl m-auto">
-              <img
-                className="mb-2 desktop:w-67"
-                src="/img/Blog4.png"
-                alt=""
-              />
+              <img className="mb-2 desktop:w-67" src="/img/Blog4.png" alt="" />
               <p className="ml-3.75 text-[10px] tablet:text-[12px] desktop:text-[14px] text-[#46A358] font-medium mb-1">
                 September 15 I Read in 2 minutes
               </p>
@@ -418,7 +406,8 @@ const HomePage = () => {
                 Room by Room
               </h2>
               <p className="ml-3.75 desktop:text-[14px] tablet:text-[12px] text-[10px] text-[#727272] mb-2 leading-[100%]">
-                The benefits of houseplants are <br />endless. In addition to..
+                The benefits of houseplants are <br />
+                endless. In addition to..
               </p>
               <div className="flex items-center gap-1 ml-3.75">
                 <p className="text-[14px] text-[#3D3D3D] duration-200 cursor-pointer hover:text-[#46A358]">
@@ -430,6 +419,25 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      <div className="bg-[#00000000] flex desktop:hidden tablet:hidden h-25 fixed bottom-4 left-0 w-full z-50">
+        <div className="w-103.5 relative m-auto">
+          <img src="/svg/MobBottom.svg" alt="" />
+
+          <div className="absolute left-39 bottom-9">
+            <img className="cursor-pointer" src="/svg/MobBotoom.svg" alt="" />
+          </div>
+
+          <div className="absolute flex gap-13 items-center left-9 bottom-8.5">
+            <Mob1 className="w-5 h-5 text-[#D9D9D9] hover:text-[#46A358] duration-200 cursor-pointer" />
+            <Mob2 className="w-5 h-5 text-[#D9D9D9] hover:text-[#46A358] duration-200 cursor-pointer" />
+          </div>
+
+          <div className="absolute flex gap-13 items-center right-9 bottom-8.5">
+            <Mob3 className="w-5 h-5 text-[#D9D9D9] hover:text-[#46A358] duration-200 cursor-pointer" />
+            <Mob4 className="w-5 h-5 text-[#D9D9D9] hover:text-[#46A358] duration-200 cursor-pointer" />
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
