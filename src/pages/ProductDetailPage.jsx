@@ -425,27 +425,27 @@ const ProductDetailPage = () => {
       </div>
       <div className="container">
         <div className="grid tablet:grid-cols-3 grid-cols-2 gap-4 desktop:grid-cols-5 mb-15">
-            <div className="w-54.75 cursor-pointer duration-200 hover:shadow-2xl">
+            <div className="desktop:w-54.75 tablet:w-54.75 w-[153.3px] cursor-pointer duration-200 hover:shadow-2xl">
                 <img src="/img/Releted1.png" alt="" />
                 <p className="mt-3 text-[#3D3D3D] text-[15px] mb-1.25">Beach Spider Lily</p>
                 <p className="text-[16px] text-[#46A358] mb-2">$129.00</p>
             </div>
-            <div className="w-54.75 cursor-pointer duration-200 hover:shadow-2xl">
+            <div className="desktop:w-54.75 tablet:w-54.75 w-[153.3px] cursor-pointer duration-200 hover:shadow-2xl">
                 <img src="/img/Releted2.png" alt="" />
                 <p className="mt-3 text-[#3D3D3D] text-[15px] mb-1.25">Blushing Bromeliad</p>
                 <p className="text-[16px] text-[#46A358] mb-2">$139.00</p>
             </div>
-            <div className="w-54.75 cursor-pointer duration-200 hover:shadow-2xl">
+            <div className="desktop:w-54.75 tablet:w-54.75 w-[153.3px] cursor-pointer duration-200 hover:shadow-2xl">
                 <img src="/img/Releted3.png" alt="" />
                 <p className="mt-3 text-[#3D3D3D] text-[15px] mb-1.25">Aluminum Plant</p>
                 <p className="text-[16px] text-[#46A358] mb-2">$179.00</p>
             </div>
-            <div className="w-54.75 cursor-pointer duration-200 hover:shadow-2xl">
+            <div className="desktop:w-54.75 tablet:w-54.75 w-[153.3px] cursor-pointer duration-200 hover:shadow-2xl">
                 <img src="/img/Releted4.png" alt="" />
                 <p className="mt-3 text-[#3D3D3D] text-[15px] mb-1.25">Bird's Nest Fern</p>
                 <p className="text-[16px] text-[#46A358] mb-2">$99.00</p>
             </div>
-            <div className="w-54.75 cursor-pointer duration-200 hover:shadow-2xl">
+            <div className="desktop:w-54.75 tablet:w-54.75 w-[153.3px] cursor-pointer duration-200 hover:shadow-2xl">
                 <img src="/img/Releted5.png" alt="" />
                 <p className="mt-3 text-[#3D3D3D] text-[15px] mb-1.25">Chinese Evergreen</p>
                 <p className="text-[16px] text-[#46A358] mb-2">$39.00</p>
